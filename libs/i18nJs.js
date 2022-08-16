@@ -126,6 +126,8 @@ Number.currencyFormat = "###,##0.00";
 var millisInWorkingDay =28800000;
 var workingDaysPerWeek =5;
 
+var holiday_list = ['#2022_09_12#', '#2022_10_01#', '#2022_10_02#', '#2022_10_03#', '#2022_10_04#', '#2022_10_05#', '#2022_10_06#', '#2022_10_07#'];
+
 function isHoliday(date) {
   var friIsHoly =false;
   var satIsHoly =true;
@@ -142,7 +144,7 @@ function isHoliday(date) {
   var md = "#" + pad(date.getMonth() + 1) + "_" + pad(date.getDate()) + "#";
   var day = date.getDay();
 
-  return  (day == 5 && friIsHoly) || (day == 6 && satIsHoly) || (day == 0 && sunIsHoly) || holidays.indexOf(ymd) > -1 || holidays.indexOf(md) > -1;
+  return  (day == 5 && friIsHoly) || (day == 6 && satIsHoly) || (day == 0 && sunIsHoly) || holidays.indexOf(ymd) > -1 || holidays.indexOf(md) > -1 || holiday_list.includes(ymd);
 }
 
 
